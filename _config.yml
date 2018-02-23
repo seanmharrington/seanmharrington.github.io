@@ -20,7 +20,7 @@ repository               : "seanmharrington/seanmharrington.github.io"
 teaser                   : "/assets/images/fallback.jpg"
 words_per_minute         : 200
 comments:
-  provider               : "staticman" 
+  provider               : "staticman_v2" 
 staticman:
   allowedFields          : # ['name', 'email', 'url', 'message']
   branch                 : "master"
@@ -39,7 +39,7 @@ staticman:
         format           : # "iso8601"
 reCaptcha:
   siteKey                : "6Lf8YUgUAAAAADMgRKj393FkbRPGvcsBLTDzLAcB"
-  secret                 : "LKFqn5uwG5DsZhrQaBiAtWUTam4ua4QH+a86S2JgQkhZoW7vBOgcPaCTOERIEg6MbgJSrWfjDdspaPvp3IYGzbKFLkhL+ewIyNoEV2kYJSp5n1k+0YEaAeCPMPMOC9370hpRRIwWY7o1OVKKcKUMq8Ve8wKXEzaw9IkC2L7ZM1M="
+  secret                 : "ACXPyTLQOFJUdxVxGYE8CwzHRi3R6PM6WDCIhLE1VqpBvBpf7PQ2gf0onLCFVyfF+j8ZstBE/KTVvL2wdMewmhc5lnDlwDA/RC51zZVWTFOb8A46Iog4dfUTev4yambK8Mo4FC5geJfzF1bpJ+cXGNC+MpYw81iUMsMN86+M0E0="
 atom_feed:
   path                   : 
 search                   : # true, false (default)
