@@ -5,7 +5,7 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # `jekyll serve`. If you change this file, please restart the server process.
 
-remote_theme: "mmistakes/minimal-mistakes"
+# remote_theme: "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "dark"
 
 # Site Settings
@@ -38,8 +38,8 @@ staticman:
       options:
         format           : # "iso8601"
 reCaptcha:
-  siteKey                : "6Lf8YUgUAAAAADMgRKj393FkbRPGvcsBLTDzLAcB"
-  secret                 : "ACXPyTLQOFJUdxVxGYE8CwzHRi3R6PM6WDCIhLE1VqpBvBpf7PQ2gf0onLCFVyfF+j8ZstBE/KTVvL2wdMewmhc5lnDlwDA/RC51zZVWTFOb8A46Iog4dfUTev4yambK8Mo4FC5geJfzF1bpJ+cXGNC+MpYw81iUMsMN86+M0E0="
+  siteKey                :
+  secret                 :
 atom_feed:
   path                   : 
 search                   : # true, false (default)
