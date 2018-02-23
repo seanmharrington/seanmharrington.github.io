@@ -1,0 +1,21 @@
+---
+layout: archive
+title: "Projects"
+permalink: /projects/
+author_profile: false
+---
+
+{% if site.projects.size == 0 %}
+<div class="cf">
+<p>
+It seems I don't have any projects available to showcase right now. Check back later!
+</p>
+</div>
+{% else %}
+<div class="grid__wrapper">
+	{% for post in site.projects %}
+		{% include archive-single.html type="grid" %}
+	{% endfor %}
+</div>
+
+{% endif %}
