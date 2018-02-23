@@ -862,7 +862,7 @@ hit breakpoint at: 80484dc
 0xffffd7ec  443d 3139                                D=19
 [0x080484dc]> 
 ```
-I accidentally way more bytes of the stack than I needed. Since we are right before calling `ret`, the address will be the first 4 bytes of the stack (which we can see above in little endian format). We see that the address sits at 0xffffd5fc. Note that the stack address this ret address sits at could change depending on our input passed to the program. We may need to redetermine what this address is as we change our input.
+Since we are right before calling `ret`, the address will be the first 4 bytes of the stack (which we can see above in little endian format). We see that the address sits at 0xffffd5fc. Note that the stack address this ret address sits at could change depending on our input passed to the program. We may need to redetermine what this address is as we change our input.
 
 Let's assume for the moment that the return address will stay at address 0xf7e2f637. Since we determined earlier that our input first is found as the sixth word on the stack, we can store an address that we want to modify at that sixth word (or in other words, as the first four bytes as our input string). Then after 5 reads from the stack (%08x.%08x.%08x.%08x.%08x.) the next specifier can be changed to "%n" in order to write to the first four bytes of our input.
 
