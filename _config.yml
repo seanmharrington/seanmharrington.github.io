@@ -5,7 +5,8 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # `jekyll serve`. If you change this file, please restart the server process.
 
-minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+remote_theme: "mmistakes/minimal-mistakes"
+minimal_mistakes_skin    : "dark"
 
 # Site Settings
 locale                   : "en-US"
@@ -13,44 +14,34 @@ title                    : "Sean Harrington"
 title_separator          : "-"
 name                     : "Sean Harrington"
 description              : "A collection of designs, builds, and hacks"
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : "/assets/images/fallback.jpg" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-# breadcrumbs            : false # true, false (default)
+url                      : "https://seanmharrington.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+baseurl                  : 
+repository               : "seanmharrington/seanmharrington.github.io"
+teaser                   : "/assets/images/fallback.jpg"
 words_per_minute         : 200
 comments:
-  provider               : "staticman_v2" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "staticman_v2" "custom"
-  disqus:
-    shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
-  discourse:
-    server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
-  facebook:
-    # https://developers.facebook.com/docs/plugins/comments
-    appid                :
-    num_posts            : # 5 (default)
-    colorscheme          : # "light" (default), "dark"
+  provider               : "staticman" 
 staticman:
-  allowedFields          : ['name', 'email', 'url', 'message']
+  allowedFields          : # ['name', 'email', 'url', 'message']
   branch                 : "master"
-  commitMessage          : "New comment."
-  filename               : comment-{@timestamp}
-  format                 : "yml"
-  moderation             : true
-  path                   : "/_data/comments/{options.slug}"
-  requiredFields         : ['name', 'email', 'message']
+  commitMessage          : # "New comment."
+  filename               : # comment-{@timestamp}
+  format                 : # "yml"
+  moderation             : # true
+  path                   : # "/_data/comments/{options.slug}"
+  requiredFields         : # ['name', 'email', 'message']
   transforms:
-    email                : "md5"
+    email                : # "md5"
   generatedFields:
     date:
-      type               : "date"
+      type               : # "date"
       options:
-        format           : "iso8601"
+        format           : # "iso8601"
 reCaptcha:
-  siteKey                :
-  secret                 :
+  siteKey                : "6Lf8YUgUAAAAADMgRKj393FkbRPGvcsBLTDzLAcB"
+  secret                 : "LKFqn5uwG5DsZhrQaBiAtWUTam4ua4QH+a86S2JgQkhZoW7vBOgcPaCTOERIEg6MbgJSrWfjDdspaPvp3IYGzbKFLkhL+ewIyNoEV2kYJSp5n1k+0YEaAeCPMPMOC9370hpRRIwWY7o1OVKKcKUMq8Ve8wKXEzaw9IkC2L7ZM1M="
 atom_feed:
-  path                   : # blank (default) uses feed.xml
+  path                   : 
 search                   : # true, false (default)
 search_full_content      : # true, false (default)
 search_provider          : # lunr (default), algolia
@@ -94,32 +85,32 @@ author:
   avatar           : "/assets/images/smh.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Computer Engineer"
   location         : "Frequently Moving"
-  email            :
-  uri              :
-  home             : # null (default), "absolute or relative url to link to author home"
-  bitbucket        :
-  codepen          :
-  dribbble         :
-  flickr           :
-  facebook         :
-  foursquare       :
-  github           :
-  gitlab           :
-  google_plus      :
-  keybase          :
-  instagram        :
-  lastfm           :
-  linkedin         : # "john-doe-12345678" (the last part of your profile url, e.g. https://www.linkedin.com/in/john-doe-12345678)
-  pinterest        :
-  soundcloud       :
-  stackoverflow    : # "123456/username" (the last part of your profile url, e.g. https://stackoverflow.com/users/123456/username)
-  steam            : # "steamId" (the last part of your profile url, e.g. https://steamcommunity.com/id/steamId/)
-  tumblr           :
-  twitter          :
-  vine             :
-  weibo            :
-  xing             :
-  youtube          : # "https://youtube.com/c/MichaelRoseDesign"
+  #email            :
+  #uri              :
+  #home             :
+  #bitbucket        :
+  #codepen          :
+  #dribbble         :
+  #flickr           :
+  #facebook         :
+  #foursquare       :
+  github           : "seanmharrington"
+  #gitlab           :
+  #google_plus      :
+  #keybase          :
+  #instagram        :
+  #lastfm           :
+  #linkedin         : # "john-doe-12345678" (the last part of your profile url, e.g. https://www.linkedin.com/in/john-doe-12345678)
+  #pinterest        :
+  #soundcloud       :
+  #stackoverflow    : # "123456/username" (the last part of your profile url, e.g. https://stackoverflow.com/users/123456/username)
+  #steam            : # "steamId" (the last part of your profile url, e.g. https://steamcommunity.com/id/steamId/)
+  #tumblr           :
+  #twitter          :
+  #vine             :
+  #weibo            :
+  #xing             :
+  #youtube          : # "https://youtube.com/c/MichaelRoseDesign"
 
 
 # Reading Files
@@ -266,7 +257,7 @@ defaults:
       related: true
   # _pages
   - scope:
-      path: "_pages"
+      path: ""
       type: pages
     values:
       layout: single

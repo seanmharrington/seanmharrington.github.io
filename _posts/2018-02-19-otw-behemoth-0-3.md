@@ -1,8 +1,9 @@
 ---
+layout: single
+comments: true
 tags: [ctf]
 title: "OverTheWire - Behemoth Solutions 0-3"
 classes: wide
-comments: true
 ---
 
 # Overview
