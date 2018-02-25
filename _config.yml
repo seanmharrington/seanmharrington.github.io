@@ -14,42 +14,43 @@ title                    : "Sean Harrington"
 title_separator          : "-"
 name                     : "Sean Harrington"
 description              : "A collection of designs, builds, and hacks"
-url                      : "https://seanmharrington.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : "https://seanmharrington.github.io"
 baseurl                  : 
 repository               : "seanmharrington/seanmharrington.github.io"
 teaser                   : "/assets/images/fallback.jpg"
 words_per_minute         : 200
 comments:
-  provider               : "staticman_v2" 
+  provider               : "staticman" 
 staticman:
-  allowedFields          : # ['name', 'email', 'url', 'message']
+# allowedFields          : ['name', 'email', 'url', 'message']
   branch                 : "master"
-  commitMessage          : # "New comment."
-  filename               : # comment-{@timestamp}
-  format                 : # "yml"
-  moderation             : # true
-  path                   : # "/_data/comments/{options.slug}"
-  requiredFields         : # ['name', 'email', 'message']
-  transforms:
-    email                : # "md5"
-  generatedFields:
-    date:
-      type               : # "date"
-      options:
-        format           : # "iso8601"
+# commitMessage          : "New comment."
+# filename               : comment-{@timestamp}
+# format                 : "yml"
+# moderation             : true
+# path                   : "/_data/comments/{options.slug}"
+# requiredFields         : ['name', 'email', 'message']
+# transforms:
+#   email                : "md5"
+# generatedFields:
+#   date:
+#     type               : "date"
+#     options:
+#       format           : "iso8601"
 reCaptcha:
-  siteKey                :
-  secret                 :
+  enabled: true
+  siteKey: "6LcpcEgUAAAAAPHaB9ZYfX7_0BrXZkGwU93Mhwk8"
+  secret: "RvsB8zjBUrNHVTaKp3/HZP6pq3WlWapkFNCAmmXEkiGfQtgBfmeApMvENG3P2gFJaM1y1qxi9BGXPvb2LkAS3rEgZ33p9Ne3l+n68bLJ4pwJbJ3L+jmP7nWq7E97C4uuCYDkLcdQ/9g2Uwyq3G6lOlKi7D84pxzHhwlwNG94Uhw="
 atom_feed:
-  path                   : 
-search                   : # true, false (default)
-search_full_content      : # true, false (default)
-search_provider          : # lunr (default), algolia
-algolia:
-  application_id         : # YOUR_APPLICATION_ID
-  index_name             : # YOUR_INDEX_NAME
-  search_only_api_key    : # YOUR_SEARCH_ONLY_API_KEY
-  powered_by             : # true (default), false
+  path                   :
+# search                   : true # true, false (default)
+# search_full_content      : # true, false (default)
+# search_provider          : # lunr (default), algolia
+# algolia:
+#   application_id         : # YOUR_APPLICATION_ID
+#   index_name             : # YOUR_INDEX_NAME
+#   search_only_api_key    : # YOUR_SEARCH_ONLY_API_KEY
+#   powered_by             : # true (default), false
 
 # SEO Related
 google_site_verification :
@@ -74,15 +75,15 @@ social:
 
 # Analytics
 analytics:
-  provider               : false # false (default), "google", "google-universal", "custom"
+  provider               : "google"
   google:
-    tracking_id          :
+    tracking_id          : "UA-114681017-1"
 
 
 # Site Author
 author:
   name             : "Sean Harrington"
-  avatar           : "/assets/images/smh.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/smh.jpg"
   bio              : "Computer Engineer"
   location         : "Frequently Moving"
   #email            :

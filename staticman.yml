@@ -17,7 +17,7 @@ comments:
   # When allowedOrigins is defined, only requests sent from one of the domains
   # listed will be accepted. The origin is sent as part as the `options` object
   # (e.g. <input name="options[origin]" value="http://yourdomain.com/post1")
-  # allowedOrigins: ["yourdomain.com"]
+  allowedOrigins: ["localhost", "seanharrington.github.io"]
 
   # (*) REQUIRED
   #
@@ -42,7 +42,7 @@ comments:
   # to be used directly (e.g. a string, number or array)
   generatedFields:
     date:
-      type: "date"
+      type: date
       options:
         format: "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
 
@@ -61,7 +61,7 @@ comments:
   #   type: "comment"
 
   # Name of the site. Used in notification emails.
-  # name: "Your Site"
+  name: "seanmharrington"
 
   # Notification settings. When enabled, users can choose to receive notifications
   # via email when someone adds a reply or a new comment. This requires an account
@@ -97,8 +97,6 @@ comments:
   # reCaptcha
   # Register your domain at https://www.google.com/recaptcha/ and choose reCAPTCHA V2
   reCaptcha:
-    enabled: false
-    siteKey:
-    # Encrypt reCaptcha secret key using Staticman /encrypt endpoint
-    # For more information, https://staticman.net/docs/encryption
-    secret:
+    enabled: true
+    siteKey: "6LcpcEgUAAAAAPHaB9ZYfX7_0BrXZkGwU93Mhwk8"
+    secret: "RvsB8zjBUrNHVTaKp3/HZP6pq3WlWapkFNCAmmXEkiGfQtgBfmeApMvENG3P2gFJaM1y1qxi9BGXPvb2LkAS3rEgZ33p9Ne3l+n68bLJ4pwJbJ3L+jmP7nWq7E97C4uuCYDkLcdQ/9g2Uwyq3G6lOlKi7D84pxzHhwlwNG94Uhw="
