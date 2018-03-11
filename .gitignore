@@ -8,6 +8,7 @@
 _asset_bundler_cache
 _site/*
 test/*
+_drafts/*
 !_site/sitemap.xml
 codekit-config.json
 example/_site

@@ -1,0 +1,33 @@
+This post is the first in a series for a project that I started back in 2015 that was aimed at pushing my abilities in PCB design. I decided I wanted to create my first four-layer board and to add to the challenge, do so with a very limited PCB area. The project I came up with is what I call the LED Watch. This post in the series will focus specifically on the design of the first version of the LED Watch (v1.0).
+
+## Other LED Watch Designs
+
+I'm definitely not the first person to design a watch that tells time with LEDs. Before I started, I did some searching on the web to see the work that others have done. A post back in 2012 on Hackaday showed off a LED Pocket Watch created by frank26080115: <https://hackaday.com/2012/11/30/led-pocket-watch-2/>. I decided however that I wanted to create a wristwatch instead of a pocket watch. This therefore required the PCB to be much smaller than frank's design. The layout of LEDs for frank's board was what I had in mind for my design (Separate LEDs for hour, minutes, seconds).
+
+I also saw a new wristwatch design back in 2017 from Kevin Cuzner after I had started LED Watch v1.0 which can be seen here: <http://kevincuzner.com/2017/04/18/the-led-wristwatch-a-more-or-less-completed-project/>. This design uses 60 LEDs to tell both minutes and seconds combined which is a different approach compared to mine.
+
+## Design v1.0
+I started off with a few requirements for my design:
+* PCB must fit on my wrist (< 1.5" in diameter)
+* Must use an individual LED for each hour, minute, and second and one additional LED to inform AM vs PM.
+* LEDs must be controlled from microcontroller in order to customize different animations and potentially add "alarm" feature.
+* Time must be fairly precise (no hard metric. My goal was to have less than 1 second deviation after a few years of continuous run time.
+* Powered from coin cell for simplicity in both PCB design and potential packaging design later.
+* Must be able to reflash microcontroller using a debug port designed into PCB.
+* Two push buttons must be present.
+* Power-efficient - should be able to run off a single coin cell battery for at least a year before battery replacement.
+* Watch should have a configurable timer that turns off LEDs and causes MCU to sleep until user input is detected.
+
+After building my list of requirements, it was time to start with the circuit design and sourcing parts. Because I'm attempting to use 133 leds (12 for hours, 60 for minutes, 60 for seconds, 1 for AM/PM), I had to find a way to control the LEDs with much less than 133 pins as I knew I wouldn't be finding a MCU with that many GPIOs in a user-friendly package. To do this, a multiplexing circuit can be used as seen below:
+
+![4x4 Multiplexed LEDs](/images/)
+
+The image above shows a 4x4 multiplexer circuit. To create a state where all LEDs are unlit, you would connect A, B, C, D to ground and connect E, F, G, H to the supply voltage (let's assume the supply voltage is 3v3 from here on out). This would cause all of the LEDs to be in reverse-bias and therefore they will be unlit. In order to light up LED L2, you would connect terminal B to the supply voltage (let's assume the supply voltage is 3v3 from here on out) and terminal E to ground. We now have a forward-bias voltage across only LED L2. LED L6, L10, and L14 won't turn on because lines F, G, H and still connected to the supply voltage and the voltage across those LEDs is therefore zero. To turn off L2, simply flip the states for F and B again.
+
+For 16 LEDs, we therefore only need 8 different signals to connect all the LEDs. I now had to expand the multiplexer to work with 132 LEDs (I decided I would leave 1 dedicated GPIO for AM/PM indicator LED). A 12x11 multiplexer will do the trick and can be seen below. 
+
+![11x12 LED Watch Multiplexer](/images/)
+
+So far, in order to control the LEDs, we need 24 GPIOs (12 + 11 + 1 for PM LED). We can use this information to now start looking for MCUs that have at least 24 GPIOs.
+
+Since I had used many different Texas Instrument MCUs in the past, I first decided to look into their low-power MSP430 line of processors. Upon some searching, I came upon their FRAM based MCUs. These are very low power MCUs that are cheap and offer some benefits over typical flash based systems. However, memory reads are actually destructive in FRAM based systems. 
