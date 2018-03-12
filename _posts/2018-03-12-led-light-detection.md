@@ -1,6 +1,7 @@
 ---
 title: Using LEDs to Detect Light
 comments: true
+layout: single
 classes: wide
 header:
   teaser: /assets/images/light-sensing-demo.gif
@@ -59,9 +60,9 @@ Each pin can be reconfigured for a different purpose within software which is wh
 
 We will therefore wire up an LED in series with a resistor between pins 7 and 11. It's important that the LED anode is connected to the pin that can be programmed as an ADC as shown below:
 
-![Image]
+![Simple LED Light Sense Circuit](/assets/images/led_light_sense_circuit.jpg)
 
-In my case, I used a 200 Ohm current-limiting resistor as it maximized the continuous current draw of my LED (the MSP430 runs at 3.3 volts). This resistor value will vary based on the voltage output of the microcontroller and LED you are using.
+In my case, I used a 200 Ohm current-limiting resistor as it maximized the continuous current draw of my LED (the MSP430 runs at 3.3 volts). This resistor value will vary based on many factors such as the supply voltage from the MCU output and max continuous current ratings of both the MCU GPIO and LED. This is important as picking a poor current limiting resistor value risks destroying the LED - or worse - the MCU in this particular circuit setup. Another more safer method would be using the GPIO output from the MCU to toggle the gate on a transistor to connect together the anode of the LED and the power source.
 
 ### Turning on the LED
 
@@ -83,18 +84,23 @@ The following is a quick outline of the steps required to use the LED as a photo
 
 If we take the voltage difference measured between the two points in time and divide by the measurement time, we get the average voltage for that measurement. This is the area under the curve or integral. If the process is repeated again, the two averages can be compared to determine how much the light changed between the two measurements.
 
-![Image of integral of voltage over time]
+<figure class="half">
+	<a href="/assets/images/led_discharge_low.png"><img src="/assets/images/led_discharge_low.png"></a>
+	<a href="/assets/images/led_discharge_high.png"><img src="/assets/images/led_discharge_high.png"></a>
+</figure>
 
 The voltage difference measured between each cycle of steps will most likely vary slightly even with the same amount of light. A averaging filter can help reduce the influence of these small voltage differences. 
 
 ### Detecting light with LED matrix
 In my LED wristwatch project, I'm using a 12x11 LED matrix to display the time. It's possible to also add light-sensing capabilities to an LED matrix by expanding onto the circuit we originally used for a single LED. Simply connect the shared anode of each array to an ADC on the microcontroller.
 
-![Image of 12x11 matrix]
+![12x11 matrix](/assets/images/led_matrix_12x11.jpg)
+
+For example in my LED matrix, each COL label at the top of the matrix would be connected to an available ADC. In my demo software, if I measure
 
 ## Demo Software
 
-The following code uses the light detected by 1 LED in the matrix to determine which LED representing the seconds of time should be turned on.
+The following code uses the light detected by the "hours" LEDs in the matrix to determine which LED representing the seconds of time should be turned on.
 
 ```c
 #include <msp430.h>
@@ -281,4 +287,6 @@ led_controller.c: <https://github.com/seanmharrington/LED_Watch/blob/v1.1/Softwa
 Here's a video of the demo functioning:
 
 ![](/assets/images/light-sensing-demo.gif "LED light sensing demo")
+
+Let me know if you have any questions or comments below!
 
