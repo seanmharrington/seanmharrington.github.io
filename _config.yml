@@ -6,11 +6,11 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 remote_theme: "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "dark"
+minimal_mistakes_skin    : "default"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Sean Harrington"
+title                    : ""
 title_separator          : "-"
 name                     : "Sean Harrington"
 description              : "A collection of designs, builds, and hacks"
@@ -190,6 +190,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jemoji
+  - jekyll-include-cache
 
 # mimic GitHub Pages with --safe
 whitelist:
